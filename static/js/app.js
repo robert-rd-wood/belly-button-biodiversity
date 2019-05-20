@@ -30,7 +30,7 @@ function buildCharts(sample) {
   d3.json(`/samples/${sample}`).then((sample) => {
 
     // @TODO: Build a Bubble Chart using the sample data
-
+    console.log(sample);
     // Build trace for bubble plot using data from sample object
     var trace1 = {
       type: "scatter",
@@ -64,7 +64,15 @@ function buildCharts(sample) {
     // @TODO: Build a Pie Chart
     // HINT: You will need to use slice() to grab the top 10 sample_values,
     // otu_ids, and labels (10 each).
+    trace2 = {
+      type: 'pie',
+      values: sample.sample_values.slice(0,10),
+      labels: sample.otu_ids.slice(0,10),
+    };
 
+    var data2 = [trace2];
+
+    Plotly.newPlot("pie",data2);
 
   });
 }
