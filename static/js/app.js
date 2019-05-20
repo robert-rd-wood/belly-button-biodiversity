@@ -30,7 +30,7 @@ function buildCharts(sample) {
   d3.json(`/samples/${sample}`).then((sample) => {
 
     // @TODO: Build a Bubble Chart using the sample data
-    console.log(sample);
+
     // Build trace for bubble plot using data from sample object
     var trace1 = {
       type: "scatter",
@@ -67,7 +67,7 @@ function buildCharts(sample) {
     trace2 = {
       type: 'pie',
       values: sample.sample_values.slice(0,10),
-      labels: sample.otu_ids.slice(0,10),
+      labels: sample.otu_ids.slice(0,10)
     };
 
     var data2 = [trace2];

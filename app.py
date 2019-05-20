@@ -75,7 +75,6 @@ def sample_metadata(sample):
         sample_metadata["BBTYPE"] = result[5]
         sample_metadata["WFREQ"] = result[6]
 
-    print(sample_metadata)
     return jsonify(sample_metadata)
 
 
@@ -96,6 +95,29 @@ def samples(sample):
     }
     return jsonify(data)
 
+
+@app.route("/wfreq/<sample>")
+def sample_wfreq(sample):
+    """Return the MetaData for a given sample."""
+    sel = [
+        Samples_Metadata.sample,
+        Samples_Metadata.ETHNICITY,
+        Samples_Metadata.GENDER,
+        Samples_Metadata.AGE,
+        Samples_Metadata.LOCATION,
+        Samples_Metadata.BBTYPE,
+        Samples_Metadata.WFREQ,
+    ]
+
+    results = db.session.query(*sel).filter(Samples_Metadata.sample == sample).all()
+
+    # Create a dictionary entry for each row of metadata information
+    sample_metadata = {}
+    for result in results:
+        sample_metadata["WFREQ"] = result[6]
+
+    return jsonify(sample_metadata)
+    
 
 if __name__ == "__main__":
     app.run()
