@@ -12,8 +12,6 @@ function buildMetadata(sample) {
     metadata.html("");
 
     // Use `Object.entries` to add each key and value pair to the panel
-    // Hint: Inside the loop, you will need to use d3 to append new
-    // tags for each key-value in the metadata.
     Object.entries(sample).forEach(([key, value]) => {
       // Add <p> element containing the key and value
       metadata.append("p").text(key+": "+value);
@@ -53,6 +51,12 @@ function buildCharts(sample) {
       },
       yaxis: {
         autorange: true
+      },
+      margin: {
+        l: 30,
+        r: 30,
+        t: 50,
+        b: 80
       }
     };
 
@@ -72,14 +76,20 @@ function buildCharts(sample) {
     };
 
     var layout2 = {
-      title: "<b>Top 10 Microbes Observed</b>"
+      title: "<b>Top 10 Microbes Observed</b>",
+      margin: {
+        l: 30,
+        r: 15,
+        t: 100,
+        b: 10
+      }
     }
 
+    // Assign data variable for plotting
     var data2 = [trace2];
 
+    // Draw bubble plot
     Plotly.newPlot("pie",data2,layout2);
-
-
   });
 }
 

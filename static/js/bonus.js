@@ -53,7 +53,13 @@ function buildGauge(sample) {
         xaxis: {zeroline:false, showticklabels:false,
                     showgrid: false, range: [-1, 1]},
         yaxis: {zeroline:false, showticklabels:false,
-                    showgrid: false, range: [-1, 1]}
+                    showgrid: false, range: [-1, 1]},
+        margin: {
+            l: 15,
+            r: 30,
+            t: 100,
+            b: 10
+            }
         };
 
         Plotly.newPlot('gauge', data, layout);
