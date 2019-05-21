@@ -20,8 +20,9 @@ function buildMetadata(sample) {
     });
   
   });
+
     // BONUS: Build the Gauge Chart
-    // buildGauge(data.WFREQ);
+    buildGauge(sample);
 }
 
 function buildCharts(sample) {
@@ -70,9 +71,14 @@ function buildCharts(sample) {
       labels: sample.otu_ids.slice(0,10)
     };
 
+    var layout2 = {
+      title: "<b>Top 10 Microbes Observed</b>"
+    }
+
     var data2 = [trace2];
 
-    Plotly.newPlot("pie",data2);
+    Plotly.newPlot("pie",data2,layout2);
+
 
   });
 }
