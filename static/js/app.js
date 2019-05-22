@@ -19,8 +19,8 @@ function buildMetadata(sample) {
   
   });
 
-    // BONUS: Build the Gauge Chart
-    buildGauge(sample);
+  // BONUS: Build the Gauge Chart
+  buildGauge(sample);
 }
 
 function buildCharts(sample) {
