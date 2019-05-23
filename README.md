@@ -1,4 +1,4 @@
-# belly-button-biodiversity
+# Belly Button Biodiversity
 Belly Button Biodiversity - Interactive Dashboard
 
 **Description**  
