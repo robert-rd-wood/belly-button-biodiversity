@@ -39,7 +39,8 @@ function buildCharts(sample) {
       mode: 'markers',
       marker: {
         size: sample.sample_values,
-        color: sample.otu_ids
+        color: sample.otu_ids,
+        colorscale: 'Earth'
       }
     };
 
